@@ -135,7 +135,17 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("PumpFunSnipperBot", "PumpFunSnipperBot"))
+        self.label.setText(_translate("MainWindow", "Token Adress:"))
+        self.ui_buy_token_amount.setPlaceholderText(_translate("MainWindow", "Buy Amount"))
+        self.ui_buy_btn.setText(_translate("MainWindow", "Buy"))
+        self.ui_sell_token_amount.setPlaceholderText(_translate("MainWindow", "Sell Amount"))
+        self.ui_sell_btn.setText(_translate("MainWindow", "Sell"))
+        self.groupBox.setTitle(_translate("MainWindow", "Log"))
+        self.groupBox_2.setTitle(_translate("MainWindow", "Newly Created Token"))
+
     def show(self):
         self.MainWindow.show()
 
@@ -177,3 +187,14 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.thread.finished.connect(self.thread.deleteLater)
         self.thread.start()
 
+class WorkerThread(QtCore.QObject):
+    finished = QtCore.pyqtSignal()
+
+    def __init__(self, func, *args):
+        super().__init__()
+        self.func = func
+        self.args = args
+
+    def run(self):
+        self.func(*self.args)
+        self.finished.emit()
