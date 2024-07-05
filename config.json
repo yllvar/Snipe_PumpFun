@@ -1,0 +1,12 @@
+{
+    "api_key": "",
+    "private_key": "",
+    "slippage": 100,
+    "rpc_endpoint": "",
+    "priorityFee": 0.001,
+    "denominatedInSol": "true",
+    "pool": "pump",
+    "websocket_url": "wss://pumpportal.fun/api/data",
+    "wallet_address": "",
+    "market_cap_api_url": "https://frontend-api.pump.fun/coins"
+}
