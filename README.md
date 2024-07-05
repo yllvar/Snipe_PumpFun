@@ -150,3 +150,5 @@ Error: "RPC node unavailable"
 Solution: Implement fallback RPC nodes in configuration
 
 This comprehensive approach to using the API will help prevent common errors, enhance security, and provide a smooth trading experience for users.
+
+
