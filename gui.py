@@ -187,14 +187,3 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.thread.finished.connect(self.thread.deleteLater)
         self.thread.start()
 
-class WorkerThread(QtCore.QObject):
-    finished = QtCore.pyqtSignal()
-
-    def __init__(self, func, *args):
-        super().__init__()
-        self.func = func
-        self.args = args
-
-    def run(self):
-        self.func(*self.args)
-        self.finished.emit()
